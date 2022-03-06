@@ -3,6 +3,8 @@ from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 from .config import Config
 
+
+
 app = Flask(__name__)
 app.config.from_object(Config)
 
@@ -13,6 +15,10 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = 'login'
 
+
 # Instantiate Flask-Migrate library here
 
 from app import views
+from flask_migrate import Migrate
+
+migrate = Migrate(app, db)

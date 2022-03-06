@@ -85,6 +85,13 @@ def flash_errors(form):
             ), 'danger')
 
 
+#Step 9- Creating the /secure-page route
+@app.route('/secure_page/')
+@login_required
+def secure_page():
+
+    return render_template('secure_page.html')
+
 @app.route('/<file_name>.txt')
 def send_text_file(file_name):
     """Send your static text file."""
